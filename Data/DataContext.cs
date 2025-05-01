@@ -23,6 +23,9 @@ namespace RpgApi.Data
         public DbSet<Armas> TB_ARMAS {get; set; }
         public DbSet<Usuario> TB_USUARIOS {get;set;}
 
+        public DbSet<Habilidade> TB_HABILIDADES {get; set; }
+        public DbSet<PersonagemHabilidade> TB_PERSONAGENS_HABILIDADES {get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {   
             modelBuilder.Entity<Personagem>().ToTable("TB_PERSONAGENS");
@@ -77,6 +80,32 @@ namespace RpgApi.Data
 
             modelBuilder.Entity<Usuario>().HasData(user);
             modelBuilder.Entity<Usuario>().Property(u => u.Perfil).HasDefaultValue("Jogador");
+
+            //*
+
+            modelBuilder.Entity<Habilidade>().ToTable("TB_HABILIDADES");
+            modelBuilder.Entity<PersonagemHabilidade>().ToTable("TB_PERSONAGENS_HABILIDADES");
+            
+            modelBuilder.Entity<PersonagemHabilidade>()
+                .HasKey(ph => new {ph.PersonagemId, ph.HabilidadeId});
+                
+            modelBuilder.Entity<Habilidade>().HasData(
+                new Habilidade(){Id=1, Nome="Combustão", Dano= 39, Elemento=HabilidadesEnum.Fogo},
+                new Habilidade(){Id=2, Nome="Penumbra", Dano= 41, Elemento=HabilidadesEnum.Sombra},
+                new Habilidade(){Id=3, Nome="Dama de Cálcio", Dano = 37, Elemento=HabilidadesEnum.Osso}
+            );
+
+            modelBuilder.Entity<PersonagemHabilidade>().HasData(
+                new PersonagemHabilidade(){PersonagemId = 1, HabilidadeId= 1},
+                new PersonagemHabilidade(){PersonagemId = 1, HabilidadeId= 2},
+                new PersonagemHabilidade(){PersonagemId = 2, HabilidadeId= 2},
+                new PersonagemHabilidade(){PersonagemId = 3, HabilidadeId= 2},
+                new PersonagemHabilidade(){PersonagemId = 3, HabilidadeId= 3},
+                new PersonagemHabilidade(){PersonagemId = 4, HabilidadeId= 3},
+                new PersonagemHabilidade(){PersonagemId = 5, HabilidadeId= 1},
+                new PersonagemHabilidade(){PersonagemId = 6, HabilidadeId= 2},
+                new PersonagemHabilidade(){PersonagemId = 7, HabilidadeId= 3}
+            );
         }
 
         protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
@@ -89,5 +118,6 @@ namespace RpgApi.Data
             optionsBuilder.ConfigureWarnings(warnings => warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
         }
         
+
     }
 }

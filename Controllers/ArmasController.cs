@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using RpgApi.Data;
 using RpgApi.Models;
@@ -19,13 +20,13 @@ namespace RpgApi.Controllers
     {
        private readonly DataContext _context;
        private static List<Armas> armas = new List<Armas>(){
-            new Armas() { Id = 1, Nome = "Tíbia (sim o osso da perna)", Dano = 25, Raridade=ArmasEnum.De_boa },
-            new Armas() { Id = 2, Nome = "Machado de Execução", Dano = 40, Raridade=ArmasEnum.Maneira },
-            new Armas() { Id = 3, Nome = "Cajado Candelabro", Dano = 25, Raridade=ArmasEnum.Incrível },
-            new Armas() { Id = 4, Nome = "Pedaço de Pilar", Dano = 30, Raridade=ArmasEnum.Incrível },
-            new Armas() { Id = 5, Nome = "Pistoleta Trevosa", Dano = 30, Raridade=ArmasEnum.De_boa},
-            new Armas() { Id = 6, Nome = "Foice", Dano = 35, Raridade=ArmasEnum.Trevosa },
-            new Armas() { Id = 7, Nome = "Crânio Mágico (sei lá)", Dano = 45, Raridade=ArmasEnum.Trevosa }
+            new Armas() { Id = 1, Nome = "Tíbia (sim o osso da perna)", Dano = 25, Raridade=ArmasEnum.De_boa, Elemento=HabilidadesEnum.Normal },
+            new Armas() { Id = 2, Nome = "Machado de Execução", Dano = 40, Raridade=ArmasEnum.Maneira, Elemento=HabilidadesEnum.Normal },
+            new Armas() { Id = 3, Nome = "Cajado Candelabro", Dano = 25, Raridade=ArmasEnum.Incrível, Elemento=HabilidadesEnum.Fogo },
+            new Armas() { Id = 4, Nome = "Pedaço de Pilar", Dano = 30, Raridade=ArmasEnum.Incrível, Elemento=HabilidadesEnum.Osso },
+            new Armas() { Id = 5, Nome = "Pistoleta Trevosa", Dano = 30, Raridade=ArmasEnum.De_boa, Elemento=HabilidadesEnum.Sombra},
+            new Armas() { Id = 6, Nome = "Foice", Dano = 35, Raridade=ArmasEnum.Trevosa, Elemento=HabilidadesEnum.Espirito},
+            new Armas() { Id = 7, Nome = "Crânio Mágico (sei lá)", Dano = 45, Raridade=ArmasEnum.Trevosa, Elemento=HabilidadesEnum.Osso}
         };
     
         [HttpGet("GetAll")]
@@ -77,6 +78,27 @@ namespace RpgApi.Controllers
             Armas aRemove = armas.Find(a => a.Id == a.Id);
             armas.Remove(aRemove);
             return Ok("Arma expurgada com sucesso: " + aRemove.Nome);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(Armas novaArma){
+            try{
+                if(novaArma.Dano == 0)
+                    throw new Exception("O dano da arma não pode ser 0.");
+
+                    Personagem p = await _context.TB_PERSONAGENS.FirstOrDefaultAsync(p => p.Id == novaArma.PersonagemId);
+
+                if(p == null)
+                    throw new Exception("Não existe personagem com o Id informado");
+                
+                await _context.TB_ARMAS.AddAsync(novaArma);
+                await _context.SaveChangesAsync();
+
+                return Ok(novaArma.Id);
+            }
+            catch(System.Exception ex){
+                return BadRequest(ex.Message);
+            }
         }
         
     }

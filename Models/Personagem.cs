@@ -21,6 +21,8 @@ namespace RpgApi.Models
         public byte[]? FotoPersonagem { get; set; }
         public int? UsuarioID { get; set; }
 
+        public List<PersonagemHabilidade> PersonagemHabilidades {get; set;} = [];
+
         [JsonIgnore]
         public Usuario? Usuario { get; set; }
         

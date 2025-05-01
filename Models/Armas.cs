@@ -14,6 +14,7 @@ namespace RpgApi.Models
         public ArmasEnum Raridade {get; set; }
         public Personagem? Personagem { get; set; } = null!;
         public int? PersonagemId {get;set; }
+        public HabilidadesEnum Elemento {get; set; }
 
     }
 }
