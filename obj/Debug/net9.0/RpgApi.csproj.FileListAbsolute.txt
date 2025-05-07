@@ -168,3 +168,7 @@ D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\bin\Debug\net9.0\publish\appsettin
 D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\bin\Debug\net9.0\publish\RpgApi.deps.json
 D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\bin\Debug\net9.0\publish\RpgApi.runtimeconfig.json
 D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\bin\Debug\net9.0\publish\RpgApi.staticwebassets.endpoints.json
+D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\bin\Debug\net9.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\bin\Debug\net9.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\bin\Debug\net9.0\Newtonsoft.Json.dll
+D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\bin\Debug\net9.0\Newtonsoft.Json.Bson.dll
