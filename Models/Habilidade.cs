@@ -15,7 +15,7 @@ namespace RpgApi.Models
         public HabilidadesEnum Elemento {get; set; }
 
         public List<PersonagemHabilidade> PersonagemHabilidades {get; set;} = [];
-        public List<Armas> ArmasHabilidades {get; set; } = [];
+        
 
 
     }

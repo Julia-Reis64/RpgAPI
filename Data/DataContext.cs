@@ -25,6 +25,7 @@ namespace RpgApi.Data
 
         public DbSet<Habilidade> TB_HABILIDADES {get; set; }
         public DbSet<PersonagemHabilidade> TB_PERSONAGENS_HABILIDADES {get; set; }
+        public DbSet<Disputa> TB_DISPUTAS {get; set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {   
@@ -106,6 +107,14 @@ namespace RpgApi.Data
                 new PersonagemHabilidade(){PersonagemId = 6, HabilidadeId= 2},
                 new PersonagemHabilidade(){PersonagemId = 7, HabilidadeId= 3}
             );
+
+            modelBuilder.Entity<Disputa>().ToTable("TB_DISPUTAS");
+
+            modelBuilder.Entity<Disputa>().HasKey(d => d.Id);
+                modelBuilder.Entity<Disputa>().Property(d => d.DataDisputa).HasColumnName("Dt_Disputa");
+                modelBuilder.Entity<Disputa>().Property(d => d.AtacanteId).HasColumnName("AtacanteId");
+                modelBuilder.Entity<Disputa>().Property(d => d.OponenteId).HasColumnName("OponenteId");
+                modelBuilder.Entity<Disputa>().Property(d => d.Narracao).HasColumnName("Tx_Narracao");
         }
 
         protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
