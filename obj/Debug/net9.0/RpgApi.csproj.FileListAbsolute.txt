@@ -172,3 +172,4 @@ D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\bin\Debug\net9.0\Microsoft.AspNetC
 D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\bin\Debug\net9.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\bin\Debug\net9.0\Newtonsoft.Json.dll
 D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\bin\Debug\net9.0\Newtonsoft.Json.Bson.dll
+D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

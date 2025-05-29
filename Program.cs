@@ -1,11 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using RpgApi.Data;
+using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens; 
+using System.Text; 
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<DataContext>(options => {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ConexaoLocal"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ConexaoSomee"));
 });
 
 // Add services to the container.
@@ -18,6 +24,19 @@ builder.Services.AddControllers().AddNewtonsoftJson(options => options.Serialize
     Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
 var app = builder.Build();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)  
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII
+                .GetBytes(builder.Configuration.GetSection("ConfiguracaoToken:Chave").Value)),
+            ValidateIssuer = false,
+            ValidateAudience = false
+        };
+    });
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -45,6 +64,9 @@ app.MapGet("/weatherforecast", () =>
     return forecast;
 })
 .WithName("GetWeatherForecast");
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 app.Run();

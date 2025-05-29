@@ -162,3 +162,8 @@ D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\obj\release\net9.0\refint\RpgApi.d
 D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\obj\release\net9.0\RpgApi.pdb
 D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\obj\release\net9.0\RpgApi.genruntimeconfig.cache
 D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\obj\release\net9.0\ref\RpgApi.dll
+D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\bin\release\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\bin\release\net9.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\bin\release\net9.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\bin\release\net9.0\Newtonsoft.Json.dll
+D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\bin\release\net9.0\Newtonsoft.Json.Bson.dll

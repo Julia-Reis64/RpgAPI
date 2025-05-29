@@ -6,6 +6,9 @@ D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\publish\RpgApi.runtimeconfig.json
 D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\publish\RpgApi.pdb
 D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\publish\Azure.Core.dll
 D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\publish\Azure.Identity.dll
+D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\publish\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\publish\Microsoft.AspNetCore.JsonPatch.dll
+D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\publish\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\publish\Microsoft.AspNetCore.OpenApi.dll
 D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\publish\Microsoft.Bcl.AsyncInterfaces.dll
 D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\publish\Microsoft.Data.SqlClient.dll
@@ -33,6 +36,8 @@ D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\publish\Microsoft.IdentityModel.To
 D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\publish\Microsoft.OpenApi.dll
 D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\publish\Microsoft.SqlServer.Server.dll
 D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\publish\Microsoft.Win32.SystemEvents.dll
+D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\publish\Newtonsoft.Json.dll
+D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\publish\Newtonsoft.Json.Bson.dll
 D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\publish\System.ClientModel.dll
 D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\publish\System.Configuration.ConfigurationManager.dll
 D:\Julia2DS\Desenvolvimento de Sistema\RpgApi\publish\System.Drawing.Common.dll
